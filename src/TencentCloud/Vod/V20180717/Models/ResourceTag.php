@@ -18,20 +18,28 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeSubAppIds请求参数结构体
+ * 标签键值。参考[标签](https://cloud.tencent.com/document/product/651)。
  *
- * @method array getTags() 获取标签信息，查询指定标签的子应用列表。
- * @method void setTags(array $Tags) 设置标签信息，查询指定标签的子应用列表。
+ * @method string getTagKey() 获取标签键。
+ * @method void setTagKey(string $TagKey) 设置标签键。
+ * @method string getTagValue() 获取标签值。
+ * @method void setTagValue(string $TagValue) 设置标签值。
  */
-class DescribeSubAppIdsRequest extends AbstractModel
+class ResourceTag extends AbstractModel
 {
     /**
-     * @var array 标签信息，查询指定标签的子应用列表。
+     * @var string 标签键。
      */
-    public $Tags;
+    public $TagKey;
 
     /**
-     * @param array $Tags 标签信息，查询指定标签的子应用列表。
+     * @var string 标签值。
+     */
+    public $TagValue;
+
+    /**
+     * @param string $TagKey 标签键。
+     * @param string $TagValue 标签值。
      */
     function __construct()
     {
@@ -46,13 +54,12 @@ class DescribeSubAppIdsRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
-            $this->Tags = [];
-            foreach ($param["Tags"] as $key => $value){
-                $obj = new ResourceTag();
-                $obj->deserialize($value);
-                array_push($this->Tags, $obj);
-            }
+        if (array_key_exists("TagKey",$param) and $param["TagKey"] !== null) {
+            $this->TagKey = $param["TagKey"];
+        }
+
+        if (array_key_exists("TagValue",$param) and $param["TagValue"] !== null) {
+            $this->TagValue = $param["TagValue"];
         }
     }
 }
