@@ -18,26 +18,19 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeDailyPlayStatFileList请求参数结构体
+ * RefreshUrlCache请求参数结构体
  *
- * @method string getStartTime() 获取起始日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
- * @method void setStartTime(string $StartTime) 设置起始日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
- * @method string getEndTime() 获取结束日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
- * @method void setEndTime(string $EndTime) 设置结束日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+ * @method array getUrls() 获取刷新的 URL 列表，单次最多指定20个 URL。
+ * @method void setUrls(array $Urls) 设置刷新的 URL 列表，单次最多指定20个 URL。
  * @method integer getSubAppId() 获取<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
  * @method void setSubAppId(integer $SubAppId) 设置<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
  */
-class DescribeDailyPlayStatFileListRequest extends AbstractModel
+class RefreshUrlCacheRequest extends AbstractModel
 {
     /**
-     * @var string 起始日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     * @var array 刷新的 URL 列表，单次最多指定20个 URL。
      */
-    public $StartTime;
-
-    /**
-     * @var string 结束日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-     */
-    public $EndTime;
+    public $Urls;
 
     /**
      * @var integer <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
@@ -45,8 +38,7 @@ class DescribeDailyPlayStatFileListRequest extends AbstractModel
     public $SubAppId;
 
     /**
-     * @param string $StartTime 起始日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-     * @param string $EndTime 结束日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     * @param array $Urls 刷新的 URL 列表，单次最多指定20个 URL。
      * @param integer $SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
      */
     function __construct()
@@ -62,12 +54,8 @@ class DescribeDailyPlayStatFileListRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
-            $this->StartTime = $param["StartTime"];
-        }
-
-        if (array_key_exists("EndTime",$param) and $param["EndTime"] !== null) {
-            $this->EndTime = $param["EndTime"];
+        if (array_key_exists("Urls",$param) and $param["Urls"] !== null) {
+            $this->Urls = $param["Urls"];
         }
 
         if (array_key_exists("SubAppId",$param) and $param["SubAppId"] !== null) {
