@@ -138,6 +138,7 @@ use TencentCloud\Vod\V20180717\Models as Models;
 * 播放设备的统计：播放请求带了 UserAgent 参数，并且 UserAgent 包含 Android 或者 iPhone 等标识，会统计为移动端播放次数，否则统计为 PC 端播放次数。
  * @method Models\DescribeDrmDataKeyResponse DescribeDrmDataKey(Models\DescribeDrmDataKeyRequest $req) 本 API 是 [旧版本加密](https://cloud.tencent.com/document/product/266/9638) 中[DescribeDrmDataKey 的 API 2017 接口](https://cloud.tencent.com/document/product/266/9643)的升级版本。
 如果您是新接入点播加密的用户，不要使用该 API。请参考[视频加密综述](https://cloud.tencent.com/document/product/266/45552)使用。
+ * @method Models\DescribeDrmKeyProviderInfoResponse DescribeDrmKeyProviderInfo(Models\DescribeDrmKeyProviderInfoRequest $req) 查询 DRM 密钥提供商信息。
  * @method Models\DescribeEventConfigResponse DescribeEventConfig(Models\DescribeEventConfigRequest $req) 腾讯云点播为客户提供了媒体上传、媒体管理、媒体处理等等服务，在这些服务执行过程或执行结束时，腾讯云点播也提供各种对应的事件通知，方便开发者感知服务处理状态，并做下一步的业务操作。
 
 开发者可以通过本接口来查询当前配置事件通知的接收方式、接收地址以及哪些事件开启了接收回调通知。
@@ -348,6 +349,7 @@ use TencentCloud\Vod\V20180717\Models as Models;
 2. URL 的域名必须已在云点播中注册。
 3. 单次请求最多指定20个 URL。
 4. 默认刷新配额为每天100000个 URL。
+ * @method Models\RemoveWatermarkResponse RemoveWatermark(Models\RemoveWatermarkRequest $req) 智能去除水印
  * @method Models\ResetProcedureTemplateResponse ResetProcedureTemplate(Models\ResetProcedureTemplateRequest $req) 重新设置用户自定义任务流模板的内容。  
  * @method Models\RestoreMediaResponse RestoreMedia(Models\RestoreMediaRequest $req) 当媒体文件的存储类型是归档存储或深度归档存储时，是不可访问的。如需访问，则需要调用本接口进行解冻，解冻后可访问的媒体文件是临时的，在有效期过后，则不可访问。
  * @method Models\ReviewImageResponse ReviewImage(Models\ReviewImageRequest $req) 对点播中的图片文件发起审核（令人反感的信息、不安全的信息、不适宜的信息）任务。
@@ -367,6 +369,8 @@ use TencentCloud\Vod\V20180717\Models as Models;
 - 指定直播推流码集合 StreamIds（见输入参数）筛选直播录制的媒体。
 - 指定视频 ID 集合 Vids （见输入参数）筛选直播录制的媒体。
 - 指定媒体的创建时间范围筛选媒体。
+- 指定 TRTC 应用 ID 集合筛选媒体。
+- 指定 TRTC 房间 ID 集合筛选媒体。
 - （不推荐：应使用 Names、NamePrefixes 或 Descriptions 替代）指定单个文本 Text 对媒体文件名或描述信息进行模糊搜索。
 - （不推荐：应使用 SourceTypes 替代）指定单个媒体文件来源 SourceType 进行搜索。
 - （不推荐：应使用 StreamIds 替代）指定单个推流直播码 StreamId 进行搜索。
@@ -390,6 +394,7 @@ use TencentCloud\Vod\V20180717\Models as Models;
 <div id="maxResultsDesc">接口返回结果数限制：</div>
 - <b><a href="#p_offset">Offset</a> 和 <a href="#p_limit">Limit</a> 两个参数影响单次分页查询结果数。特别注意：当这2个值都缺省时，本接口最多只返回10条查询结果。</b>
 - <b>最大支持返回5000条搜索结果，超出部分不再支持查询。如果搜索结果量太大，建议使用更精细的筛选条件来减少搜索结果。</b>
+ * @method Models\SetDrmKeyProviderInfoResponse SetDrmKeyProviderInfo(Models\SetDrmKeyProviderInfoRequest $req) 设置 DRM 密钥提供商信息。
  * @method Models\SimpleHlsClipResponse SimpleHlsClip(Models\SimpleHlsClipRequest $req) 对 HLS 视频进行按时间段裁剪，实时生成一个新的视频（HLS 格式），开发者可以将其立即分享出去，或者长久保存起来。
 
 腾讯云点播支持两种剪辑模式：
@@ -400,14 +405,14 @@ use TencentCloud\Vod\V20180717\Models as Models;
 - 剪辑是基于输入 m3u8 文件进行的，故而其最小剪辑精度为一个 ts 切片，无法实现秒级或者更为精确的剪辑精度。
 
 
-###剪辑固化
+### 剪辑固化
 所谓剪辑固化，是指将剪辑出来的视频保存成一个独立的视频（拥有独立的 FileId）。其生命周期不受原始输入视频影响（即使原始输入视频被删除，剪辑结果也不会受到任何影响）；也可以对其进行转码、微信发布等二次处理。
 
 举例如下：一场完整的足球比赛，原始视频可能长达 2 个小时，客户出于节省成本的目的可以对这个视频存储 2 个月，但对于剪辑的「精彩时刻」视频却可以指定存储更长时间，同时可以单独对「精彩时刻」视频进行转码、微信发布等额外的点播操作，这时候可以选择剪辑并且固化的方案。
 
 剪辑固化的优势在于其生命周期与原始输入视频相互独立，可以独立管理、长久保存。
 
-###剪辑不固化
+### 剪辑不固化
 所谓剪辑不固化，是指剪辑所得到的结果（m3u8 文件）与原始输入视频共享相同的 ts 分片，新生成的视频不是一个独立完整的视频（没有独立 FileId，只有播放 URL），其有效期与原始输入的完整视频有效期是一致的。一旦原始输入的视频被删除，也会导致该片段无法播放。
 
 剪辑不固化，由于其剪辑结果不是一个独立的视频，因而也不会纳入点播媒资视频管理（例如控制台的视频总数不会统计这一片段）中，也无法单独针对这个片段做转码、微信发布等任何视频处理操作。
