@@ -18,28 +18,23 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 音视频审核任务的输入。
+ * 任务流模板音视频审核输入参数类型。
  *
- * @method string getFileId() 获取媒体文件 ID。
- * @method void setFileId(string $FileId) 设置媒体文件 ID。
- * @method integer getDefinition() 获取音视频审核模板 ID。
- * @method void setDefinition(integer $Definition) 设置音视频审核模板 ID。
+ * @method integer getDefinition() 获取审核模板。
+ * @method void setDefinition(integer $Definition) 设置审核模板。
  * @method array getReviewContents() 获取审核的内容，可选值：
 <li>Media：原始音视频；</li>
 <li>Cover：封面。</li>
+不填或填空数组时，默认为审核 Media。
  * @method void setReviewContents(array $ReviewContents) 设置审核的内容，可选值：
 <li>Media：原始音视频；</li>
 <li>Cover：封面。</li>
+不填或填空数组时，默认为审核 Media。
  */
-class ReviewAudioVideoTaskInput extends AbstractModel
+class ProcedureReviewAudioVideoTaskInput extends AbstractModel
 {
     /**
-     * @var string 媒体文件 ID。
-     */
-    public $FileId;
-
-    /**
-     * @var integer 音视频审核模板 ID。
+     * @var integer 审核模板。
      */
     public $Definition;
 
@@ -47,15 +42,16 @@ class ReviewAudioVideoTaskInput extends AbstractModel
      * @var array 审核的内容，可选值：
 <li>Media：原始音视频；</li>
 <li>Cover：封面。</li>
+不填或填空数组时，默认为审核 Media。
      */
     public $ReviewContents;
 
     /**
-     * @param string $FileId 媒体文件 ID。
-     * @param integer $Definition 音视频审核模板 ID。
+     * @param integer $Definition 审核模板。
      * @param array $ReviewContents 审核的内容，可选值：
 <li>Media：原始音视频；</li>
 <li>Cover：封面。</li>
+不填或填空数组时，默认为审核 Media。
      */
     function __construct()
     {
@@ -70,10 +66,6 @@ class ReviewAudioVideoTaskInput extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FileId",$param) and $param["FileId"] !== null) {
-            $this->FileId = $param["FileId"];
-        }
-
         if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
             $this->Definition = $param["Definition"];
         }

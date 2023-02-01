@@ -18,12 +18,8 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 音视频审核片段。
+ * 图片审核片段。
  *
- * @method float getStartTimeOffset() 获取嫌疑片段起始的偏移时间，单位：秒。
- * @method void setStartTimeOffset(float $StartTimeOffset) 设置嫌疑片段起始的偏移时间，单位：秒。
- * @method float getEndTimeOffset() 获取嫌疑片段结束的偏移时间，单位：秒。
- * @method void setEndTimeOffset(float $EndTimeOffset) 设置嫌疑片段结束的偏移时间，单位：秒。
  * @method float getConfidence() 获取嫌疑片段涉及令人反感的信息的分数。
  * @method void setConfidence(float $Confidence) 设置嫌疑片段涉及令人反感的信息的分数。
  * @method string getSuggestion() 获取嫌疑片段鉴别涉及违规信息的结果建议，取值范围：
@@ -39,8 +35,7 @@ use TencentCloud\Common\AbstractModel;
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
 <li>Religion：宗教；</li>
-<li>Abuse：谩骂；</li>
-<li>Moan：娇喘。</li>
+<li>Abuse：谩骂。</li>
  * @method void setLabel(string $Label) 设置嫌疑片段最可能的违规的标签，取值范围：
 <li>Porn：色情；</li>
 <li>Terror：暴恐；</li>
@@ -48,45 +43,24 @@ use TencentCloud\Common\AbstractModel;
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
 <li>Religion：宗教；</li>
-<li>Abuse：谩骂；</li>
-<li>Moan：娇喘。</li>
+<li>Abuse：谩骂。</li>
  * @method string getSubLabel() 获取违规子标签。
  * @method void setSubLabel(string $SubLabel) 设置违规子标签。
  * @method string getForm() 获取嫌疑片段违禁的形式，取值范围：
 <li>Image：画面上的人物或图标；</li>
-<li>OCR：画面上的文字；</li>
-<li>ASR：语音中的文字；</li>
-<li>Voice：声音。</li>
+<li>OCR：画面上的文字。</li>
  * @method void setForm(string $Form) 设置嫌疑片段违禁的形式，取值范围：
 <li>Image：画面上的人物或图标；</li>
-<li>OCR：画面上的文字；</li>
-<li>ASR：语音中的文字；</li>
-<li>Voice：声音。</li>
- * @method array getAreaCoordSet() 获取当 Form 为 Image 或 OCR 时有效，表示嫌疑人物、图标或文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
- * @method void setAreaCoordSet(array $AreaCoordSet) 设置当 Form 为 Image 或 OCR 时有效，表示嫌疑人物、图标或文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
- * @method string getText() 获取当 Form 为 OCR 或 ASR 时有效，表示识别出来的 OCR 或 ASR 文本内容。
- * @method void setText(string $Text) 设置当 Form 为 OCR 或 ASR 时有效，表示识别出来的 OCR 或 ASR 文本内容。
- * @method array getKeywordSet() 获取当 Form 为 OCR 或 ASR 时有效，表示嫌疑片段命中的违规关键词列表。
- * @method void setKeywordSet(array $KeywordSet) 设置当 Form 为 OCR 或 ASR 时有效，表示嫌疑片段命中的违规关键词列表。
- * @method string getUrl() 获取嫌疑图片 URL （图片不会永久存储，到达
- PicUrlExpireTime 时间点后图片将被删除）。
- * @method void setUrl(string $Url) 设置嫌疑图片 URL （图片不会永久存储，到达
- PicUrlExpireTime 时间点后图片将被删除）。
- * @method string getPicUrlExpireTime() 获取嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
- * @method void setPicUrlExpireTime(string $PicUrlExpireTime) 设置嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+<li>OCR：画面上的文字。</li>
+ * @method array getAreaCoordSet() 获取嫌疑人物、图标或文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
+ * @method void setAreaCoordSet(array $AreaCoordSet) 设置嫌疑人物、图标或文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
+ * @method string getText() 获取当 Form 为 OCR 时有效，表示识别出来的 OCR 文本内容。
+ * @method void setText(string $Text) 设置当 Form 为 OCR 时有效，表示识别出来的 OCR 文本内容。
+ * @method array getKeywordSet() 获取当 Form 为 OCR 时有效，表示嫌疑片段命中的违规关键词列表。
+ * @method void setKeywordSet(array $KeywordSet) 设置当 Form 为 OCR 时有效，表示嫌疑片段命中的违规关键词列表。
  */
-class ReviewAudioVideoSegmentItem extends AbstractModel
+class ReviewImageSegmentItem extends AbstractModel
 {
-    /**
-     * @var float 嫌疑片段起始的偏移时间，单位：秒。
-     */
-    public $StartTimeOffset;
-
-    /**
-     * @var float 嫌疑片段结束的偏移时间，单位：秒。
-     */
-    public $EndTimeOffset;
-
     /**
      * @var float 嫌疑片段涉及令人反感的信息的分数。
      */
@@ -107,8 +81,7 @@ class ReviewAudioVideoSegmentItem extends AbstractModel
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
 <li>Religion：宗教；</li>
-<li>Abuse：谩骂；</li>
-<li>Moan：娇喘。</li>
+<li>Abuse：谩骂。</li>
      */
     public $Label;
 
@@ -120,41 +93,26 @@ class ReviewAudioVideoSegmentItem extends AbstractModel
     /**
      * @var string 嫌疑片段违禁的形式，取值范围：
 <li>Image：画面上的人物或图标；</li>
-<li>OCR：画面上的文字；</li>
-<li>ASR：语音中的文字；</li>
-<li>Voice：声音。</li>
+<li>OCR：画面上的文字。</li>
      */
     public $Form;
 
     /**
-     * @var array 当 Form 为 Image 或 OCR 时有效，表示嫌疑人物、图标或文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
+     * @var array 嫌疑人物、图标或文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
      */
     public $AreaCoordSet;
 
     /**
-     * @var string 当 Form 为 OCR 或 ASR 时有效，表示识别出来的 OCR 或 ASR 文本内容。
+     * @var string 当 Form 为 OCR 时有效，表示识别出来的 OCR 文本内容。
      */
     public $Text;
 
     /**
-     * @var array 当 Form 为 OCR 或 ASR 时有效，表示嫌疑片段命中的违规关键词列表。
+     * @var array 当 Form 为 OCR 时有效，表示嫌疑片段命中的违规关键词列表。
      */
     public $KeywordSet;
 
     /**
-     * @var string 嫌疑图片 URL （图片不会永久存储，到达
- PicUrlExpireTime 时间点后图片将被删除）。
-     */
-    public $Url;
-
-    /**
-     * @var string 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-     */
-    public $PicUrlExpireTime;
-
-    /**
-     * @param float $StartTimeOffset 嫌疑片段起始的偏移时间，单位：秒。
-     * @param float $EndTimeOffset 嫌疑片段结束的偏移时间，单位：秒。
      * @param float $Confidence 嫌疑片段涉及令人反感的信息的分数。
      * @param string $Suggestion 嫌疑片段鉴别涉及违规信息的结果建议，取值范围：
 <li>review：疑似违规，建议复审；</li>
@@ -166,20 +124,14 @@ class ReviewAudioVideoSegmentItem extends AbstractModel
 <li>Ad：广告；</li>
 <li>Illegal：违法；</li>
 <li>Religion：宗教；</li>
-<li>Abuse：谩骂；</li>
-<li>Moan：娇喘。</li>
+<li>Abuse：谩骂。</li>
      * @param string $SubLabel 违规子标签。
      * @param string $Form 嫌疑片段违禁的形式，取值范围：
 <li>Image：画面上的人物或图标；</li>
-<li>OCR：画面上的文字；</li>
-<li>ASR：语音中的文字；</li>
-<li>Voice：声音。</li>
-     * @param array $AreaCoordSet 当 Form 为 Image 或 OCR 时有效，表示嫌疑人物、图标或文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
-     * @param string $Text 当 Form 为 OCR 或 ASR 时有效，表示识别出来的 OCR 或 ASR 文本内容。
-     * @param array $KeywordSet 当 Form 为 OCR 或 ASR 时有效，表示嫌疑片段命中的违规关键词列表。
-     * @param string $Url 嫌疑图片 URL （图片不会永久存储，到达
- PicUrlExpireTime 时间点后图片将被删除）。
-     * @param string $PicUrlExpireTime 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+<li>OCR：画面上的文字。</li>
+     * @param array $AreaCoordSet 嫌疑人物、图标或文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
+     * @param string $Text 当 Form 为 OCR 时有效，表示识别出来的 OCR 文本内容。
+     * @param array $KeywordSet 当 Form 为 OCR 时有效，表示嫌疑片段命中的违规关键词列表。
      */
     function __construct()
     {
@@ -194,14 +146,6 @@ class ReviewAudioVideoSegmentItem extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("StartTimeOffset",$param) and $param["StartTimeOffset"] !== null) {
-            $this->StartTimeOffset = $param["StartTimeOffset"];
-        }
-
-        if (array_key_exists("EndTimeOffset",$param) and $param["EndTimeOffset"] !== null) {
-            $this->EndTimeOffset = $param["EndTimeOffset"];
-        }
-
         if (array_key_exists("Confidence",$param) and $param["Confidence"] !== null) {
             $this->Confidence = $param["Confidence"];
         }
@@ -232,14 +176,6 @@ class ReviewAudioVideoSegmentItem extends AbstractModel
 
         if (array_key_exists("KeywordSet",$param) and $param["KeywordSet"] !== null) {
             $this->KeywordSet = $param["KeywordSet"];
-        }
-
-        if (array_key_exists("Url",$param) and $param["Url"] !== null) {
-            $this->Url = $param["Url"];
-        }
-
-        if (array_key_exists("PicUrlExpireTime",$param) and $param["PicUrlExpireTime"] !== null) {
-            $this->PicUrlExpireTime = $param["PicUrlExpireTime"];
         }
     }
 }

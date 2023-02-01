@@ -18,24 +18,24 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeProcedureTemplates请求参数结构体
+ * DescribeReviewTemplates请求参数结构体
  *
  * @method integer getSubAppId() 获取<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
  * @method void setSubAppId(integer $SubAppId) 设置<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
- * @method array getNames() 获取任务流模板名字过滤条件，数组长度限制：100。
- * @method void setNames(array $Names) 设置任务流模板名字过滤条件，数组长度限制：100。
- * @method string getType() 获取任务流模板类型过滤条件，可选值：
-<li>Preset：系统预置任务流模板；</li>
-<li>Custom：用户自定义任务流模板。</li>
- * @method void setType(string $Type) 设置任务流模板类型过滤条件，可选值：
-<li>Preset：系统预置任务流模板；</li>
-<li>Custom：用户自定义任务流模板。</li>
+ * @method array getDefinitions() 获取审核模版唯一标识过滤条件，数组长度限制：100。
+ * @method void setDefinitions(array $Definitions) 设置审核模版唯一标识过滤条件，数组长度限制：100。
+ * @method string getType() 获取模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+ * @method void setType(string $Type) 设置模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
  * @method integer getOffset() 获取分页偏移量，默认值：0。
  * @method void setOffset(integer $Offset) 设置分页偏移量，默认值：0。
  * @method integer getLimit() 获取返回记录条数，默认值：10，最大值：100。
  * @method void setLimit(integer $Limit) 设置返回记录条数，默认值：10，最大值：100。
  */
-class DescribeProcedureTemplatesRequest extends AbstractModel
+class DescribeReviewTemplatesRequest extends AbstractModel
 {
     /**
      * @var integer <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
@@ -43,14 +43,14 @@ class DescribeProcedureTemplatesRequest extends AbstractModel
     public $SubAppId;
 
     /**
-     * @var array 任务流模板名字过滤条件，数组长度限制：100。
+     * @var array 审核模版唯一标识过滤条件，数组长度限制：100。
      */
-    public $Names;
+    public $Definitions;
 
     /**
-     * @var string 任务流模板类型过滤条件，可选值：
-<li>Preset：系统预置任务流模板；</li>
-<li>Custom：用户自定义任务流模板。</li>
+     * @var string 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
      */
     public $Type;
 
@@ -66,10 +66,10 @@ class DescribeProcedureTemplatesRequest extends AbstractModel
 
     /**
      * @param integer $SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param array $Names 任务流模板名字过滤条件，数组长度限制：100。
-     * @param string $Type 任务流模板类型过滤条件，可选值：
-<li>Preset：系统预置任务流模板；</li>
-<li>Custom：用户自定义任务流模板。</li>
+     * @param array $Definitions 审核模版唯一标识过滤条件，数组长度限制：100。
+     * @param string $Type 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
      * @param integer $Offset 分页偏移量，默认值：0。
      * @param integer $Limit 返回记录条数，默认值：10，最大值：100。
      */
@@ -90,8 +90,8 @@ class DescribeProcedureTemplatesRequest extends AbstractModel
             $this->SubAppId = $param["SubAppId"];
         }
 
-        if (array_key_exists("Names",$param) and $param["Names"] !== null) {
-            $this->Names = $param["Names"];
+        if (array_key_exists("Definitions",$param) and $param["Definitions"] !== null) {
+            $this->Definitions = $param["Definitions"];
         }
 
         if (array_key_exists("Type",$param) and $param["Type"] !== null) {

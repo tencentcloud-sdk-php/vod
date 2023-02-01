@@ -18,27 +18,17 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ReviewImage请求参数结构体
+ * DeleteReviewTemplate请求参数结构体
  *
- * @method string getFileId() 获取媒体文件 ID，即该文件在云点播上的全局唯一标识符。本接口要求媒体文件必须是图片格式。
- * @method void setFileId(string $FileId) 设置媒体文件 ID，即该文件在云点播上的全局唯一标识符。本接口要求媒体文件必须是图片格式。
- * @method integer getDefinition() 获取图片审核模板 ID，取值范围：
-<li>10：预置模板，支持检测的违规标签包括色情（Porn）、暴恐（Terror）和不适宜的信息（Polity）。</li>
- * @method void setDefinition(integer $Definition) 设置图片审核模板 ID，取值范围：
-<li>10：预置模板，支持检测的违规标签包括色情（Porn）、暴恐（Terror）和不适宜的信息（Polity）。</li>
+ * @method integer getDefinition() 获取审核模板唯一标识。
+ * @method void setDefinition(integer $Definition) 设置审核模板唯一标识。
  * @method integer getSubAppId() 获取<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
  * @method void setSubAppId(integer $SubAppId) 设置<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
  */
-class ReviewImageRequest extends AbstractModel
+class DeleteReviewTemplateRequest extends AbstractModel
 {
     /**
-     * @var string 媒体文件 ID，即该文件在云点播上的全局唯一标识符。本接口要求媒体文件必须是图片格式。
-     */
-    public $FileId;
-
-    /**
-     * @var integer 图片审核模板 ID，取值范围：
-<li>10：预置模板，支持检测的违规标签包括色情（Porn）、暴恐（Terror）和不适宜的信息（Polity）。</li>
+     * @var integer 审核模板唯一标识。
      */
     public $Definition;
 
@@ -48,9 +38,7 @@ class ReviewImageRequest extends AbstractModel
     public $SubAppId;
 
     /**
-     * @param string $FileId 媒体文件 ID，即该文件在云点播上的全局唯一标识符。本接口要求媒体文件必须是图片格式。
-     * @param integer $Definition 图片审核模板 ID，取值范围：
-<li>10：预置模板，支持检测的违规标签包括色情（Porn）、暴恐（Terror）和不适宜的信息（Polity）。</li>
+     * @param integer $Definition 审核模板唯一标识。
      * @param integer $SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
      */
     function __construct()
@@ -66,10 +54,6 @@ class ReviewImageRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FileId",$param) and $param["FileId"] !== null) {
-            $this->FileId = $param["FileId"];
-        }
-
         if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
             $this->Definition = $param["Definition"];
         }
