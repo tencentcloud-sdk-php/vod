@@ -18,14 +18,14 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * RebuildMediaByTemplate请求参数结构体
+ * EnhanceMediaByTemplate请求参数结构体
  *
  * @method string getFileId() 获取媒体文件 ID。
  * @method void setFileId(string $FileId) 设置媒体文件 ID。
  * @method integer getDefinition() 获取音画质重生模板 ID。
  * @method void setDefinition(integer $Definition) 设置音画质重生模板 ID。
- * @method string getSubAppId() 获取<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
- * @method void setSubAppId(string $SubAppId) 设置<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+ * @method integer getSubAppId() 获取<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+ * @method void setSubAppId(integer $SubAppId) 设置<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
  * @method float getStartTimeOffset() 获取起始偏移时间，单位：秒，不填表示从视频开始截取。
  * @method void setStartTimeOffset(float $StartTimeOffset) 设置起始偏移时间，单位：秒，不填表示从视频开始截取。
  * @method float getEndTimeOffset() 获取结束偏移时间，单位：秒，不填表示截取到视频末尾。
@@ -41,7 +41,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getExtInfo() 获取保留字段，特殊用途时使用。
  * @method void setExtInfo(string $ExtInfo) 设置保留字段，特殊用途时使用。
  */
-class RebuildMediaByTemplateRequest extends AbstractModel
+class EnhanceMediaByTemplateRequest extends AbstractModel
 {
     /**
      * @var string 媒体文件 ID。
@@ -54,7 +54,7 @@ class RebuildMediaByTemplateRequest extends AbstractModel
     public $Definition;
 
     /**
-     * @var string <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * @var integer <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
      */
     public $SubAppId;
 
@@ -96,7 +96,7 @@ class RebuildMediaByTemplateRequest extends AbstractModel
     /**
      * @param string $FileId 媒体文件 ID。
      * @param integer $Definition 音画质重生模板 ID。
-     * @param string $SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * @param integer $SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
      * @param float $StartTimeOffset 起始偏移时间，单位：秒，不填表示从视频开始截取。
      * @param float $EndTimeOffset 结束偏移时间，单位：秒，不填表示截取到视频末尾。
      * @param RebuildMediaOutputConfig $OutputConfig 音画质重生后的文件配置。

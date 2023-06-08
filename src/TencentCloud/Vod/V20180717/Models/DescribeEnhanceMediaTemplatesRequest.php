@@ -18,12 +18,12 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeRebuildMediaTemplates请求参数结构体
+ * DescribeEnhanceMediaTemplates请求参数结构体
  *
- * @method array getDefinitions() 获取音画质重生模板列表。
- * @method void setDefinitions(array $Definitions) 设置音画质重生模板列表。
  * @method integer getSubAppId() 获取<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
  * @method void setSubAppId(integer $SubAppId) 设置<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+ * @method array getDefinitions() 获取音画质重生模板列表。长度限制：100。
+ * @method void setDefinitions(array $Definitions) 设置音画质重生模板列表。长度限制：100。
  * @method string getType() 获取模板类型过滤条件，可选值：
 <li>Preset：系统预置模板；</li>
 <li>Custom：用户自定义模板。</li>
@@ -35,17 +35,17 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getLimit() 获取返回记录条数，默认值：10，最大值：100。
  * @method void setLimit(integer $Limit) 设置返回记录条数，默认值：10，最大值：100。
  */
-class DescribeRebuildMediaTemplatesRequest extends AbstractModel
+class DescribeEnhanceMediaTemplatesRequest extends AbstractModel
 {
-    /**
-     * @var array 音画质重生模板列表。
-     */
-    public $Definitions;
-
     /**
      * @var integer <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
      */
     public $SubAppId;
+
+    /**
+     * @var array 音画质重生模板列表。长度限制：100。
+     */
+    public $Definitions;
 
     /**
      * @var string 模板类型过滤条件，可选值：
@@ -65,8 +65,8 @@ class DescribeRebuildMediaTemplatesRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @param array $Definitions 音画质重生模板列表。
      * @param integer $SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * @param array $Definitions 音画质重生模板列表。长度限制：100。
      * @param string $Type 模板类型过滤条件，可选值：
 <li>Preset：系统预置模板；</li>
 <li>Custom：用户自定义模板。</li>
@@ -86,12 +86,12 @@ class DescribeRebuildMediaTemplatesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Definitions",$param) and $param["Definitions"] !== null) {
-            $this->Definitions = $param["Definitions"];
-        }
-
         if (array_key_exists("SubAppId",$param) and $param["SubAppId"] !== null) {
             $this->SubAppId = $param["SubAppId"];
+        }
+
+        if (array_key_exists("Definitions",$param) and $param["Definitions"] !== null) {
+            $this->Definitions = $param["Definitions"];
         }
 
         if (array_key_exists("Type",$param) and $param["Type"] !== null) {

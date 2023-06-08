@@ -18,20 +18,20 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyRebuildMediaTemplate请求参数结构体
+ * ModifyEnhanceMediaTemplate请求参数结构体
  *
  * @method integer getDefinition() 获取音画质重生模板号。
  * @method void setDefinition(integer $Definition) 设置音画质重生模板号。
- * @method string getSubAppId() 获取<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
- * @method void setSubAppId(string $SubAppId) 设置<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
- * @method string getName() 获取音画质重生模板名称。
- * @method void setName(string $Name) 设置音画质重生模板名称。
- * @method string getComment() 获取音画质重生模板描述。
- * @method void setComment(string $Comment) 设置音画质重生模板描述。
- * @method RebuildVideoInfo getRebuildVideoInfo() 获取音画质重生视频控制信息。
- * @method void setRebuildVideoInfo(RebuildVideoInfo $RebuildVideoInfo) 设置音画质重生视频控制信息。
- * @method RebuildAudioInfo getRebuildAudioInfo() 获取音画质重生音频控制信息。
- * @method void setRebuildAudioInfo(RebuildAudioInfo $RebuildAudioInfo) 设置音画质重生音频控制信息。
+ * @method integer getSubAppId() 获取<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+ * @method void setSubAppId(integer $SubAppId) 设置<b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+ * @method string getName() 获取音画质重生模板名称，长度限制：64 个字符。
+ * @method void setName(string $Name) 设置音画质重生模板名称，长度限制：64 个字符。
+ * @method string getComment() 获取模板描述信息，长度限制：256 个字符。
+ * @method void setComment(string $Comment) 设置模板描述信息，长度限制：256 个字符。
+ * @method RebuildVideoInfo getRebuildVideoInfo() 获取音画质重生视频控制控制信息。
+ * @method void setRebuildVideoInfo(RebuildVideoInfo $RebuildVideoInfo) 设置音画质重生视频控制控制信息。
+ * @method RebuildAudioInfo getRebuildAudioInfo() 获取音画质重生音频控制控制信息。
+ * @method void setRebuildAudioInfo(RebuildAudioInfo $RebuildAudioInfo) 设置音画质重生音频控制控制信息。
  * @method RebuildMediaTargetVideoStream getTargetVideoInfo() 获取输出目标视频控制信息。
  * @method void setTargetVideoInfo(RebuildMediaTargetVideoStream $TargetVideoInfo) 设置输出目标视频控制信息。
  * @method RebuildMediaTargetAudioStream getTargetAudioInfo() 获取输出目标音频控制信息。
@@ -41,17 +41,21 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getRemoveVideo() 获取是否去除视频数据，可选值：
 <li>0：保留</li>
 <li>1：去除</li>
+默认值 0。
  * @method void setRemoveVideo(integer $RemoveVideo) 设置是否去除视频数据，可选值：
 <li>0：保留</li>
 <li>1：去除</li>
+默认值 0。
  * @method integer getRemoveAudio() 获取是否去除音频数据，可选值：
 <li>0：保留</li>
 <li>1：去除</li>
+默认值 0。
  * @method void setRemoveAudio(integer $RemoveAudio) 设置是否去除音频数据，可选值：
 <li>0：保留</li>
 <li>1：去除</li>
+默认值 0。
  */
-class ModifyRebuildMediaTemplateRequest extends AbstractModel
+class ModifyEnhanceMediaTemplateRequest extends AbstractModel
 {
     /**
      * @var integer 音画质重生模板号。
@@ -59,27 +63,27 @@ class ModifyRebuildMediaTemplateRequest extends AbstractModel
     public $Definition;
 
     /**
-     * @var string <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * @var integer <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
      */
     public $SubAppId;
 
     /**
-     * @var string 音画质重生模板名称。
+     * @var string 音画质重生模板名称，长度限制：64 个字符。
      */
     public $Name;
 
     /**
-     * @var string 音画质重生模板描述。
+     * @var string 模板描述信息，长度限制：256 个字符。
      */
     public $Comment;
 
     /**
-     * @var RebuildVideoInfo 音画质重生视频控制信息。
+     * @var RebuildVideoInfo 音画质重生视频控制控制信息。
      */
     public $RebuildVideoInfo;
 
     /**
-     * @var RebuildAudioInfo 音画质重生音频控制信息。
+     * @var RebuildAudioInfo 音画质重生音频控制控制信息。
      */
     public $RebuildAudioInfo;
 
@@ -102,6 +106,7 @@ class ModifyRebuildMediaTemplateRequest extends AbstractModel
      * @var integer 是否去除视频数据，可选值：
 <li>0：保留</li>
 <li>1：去除</li>
+默认值 0。
      */
     public $RemoveVideo;
 
@@ -109,25 +114,28 @@ class ModifyRebuildMediaTemplateRequest extends AbstractModel
      * @var integer 是否去除音频数据，可选值：
 <li>0：保留</li>
 <li>1：去除</li>
+默认值 0。
      */
     public $RemoveAudio;
 
     /**
      * @param integer $Definition 音画质重生模板号。
-     * @param string $SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param string $Name 音画质重生模板名称。
-     * @param string $Comment 音画质重生模板描述。
-     * @param RebuildVideoInfo $RebuildVideoInfo 音画质重生视频控制信息。
-     * @param RebuildAudioInfo $RebuildAudioInfo 音画质重生音频控制信息。
+     * @param integer $SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * @param string $Name 音画质重生模板名称，长度限制：64 个字符。
+     * @param string $Comment 模板描述信息，长度限制：256 个字符。
+     * @param RebuildVideoInfo $RebuildVideoInfo 音画质重生视频控制控制信息。
+     * @param RebuildAudioInfo $RebuildAudioInfo 音画质重生音频控制控制信息。
      * @param RebuildMediaTargetVideoStream $TargetVideoInfo 输出目标视频控制信息。
      * @param RebuildMediaTargetAudioStream $TargetAudioInfo 输出目标音频控制信息。
      * @param string $Container 输出文件封装格式，可选值：mp4、flv、hls。
      * @param integer $RemoveVideo 是否去除视频数据，可选值：
 <li>0：保留</li>
 <li>1：去除</li>
+默认值 0。
      * @param integer $RemoveAudio 是否去除音频数据，可选值：
 <li>0：保留</li>
 <li>1：去除</li>
+默认值 0。
      */
     function __construct()
     {

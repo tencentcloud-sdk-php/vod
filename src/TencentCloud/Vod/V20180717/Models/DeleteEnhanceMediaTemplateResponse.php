@@ -18,28 +18,20 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 提取溯源水印输入
+ * DeleteEnhanceMediaTemplate返回参数结构体
  *
- * @method string getUrl() 获取需要提取水印的媒体 URL。
- * @method void setUrl(string $Url) 设置需要提取水印的媒体 URL。
- * @method string getFileId() 获取媒体文件 ID。Url 对应的原始媒体文件 ID。
- * @method void setFileId(string $FileId) 设置媒体文件 ID。Url 对应的原始媒体文件 ID。
+ * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ExtractTraceWatermarkTaskInput extends AbstractModel
+class DeleteEnhanceMediaTemplateResponse extends AbstractModel
 {
     /**
-     * @var string 需要提取水印的媒体 URL。
+     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
-    public $Url;
+    public $RequestId;
 
     /**
-     * @var string 媒体文件 ID。Url 对应的原始媒体文件 ID。
-     */
-    public $FileId;
-
-    /**
-     * @param string $Url 需要提取水印的媒体 URL。
-     * @param string $FileId 媒体文件 ID。Url 对应的原始媒体文件 ID。
+     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class ExtractTraceWatermarkTaskInput extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Url",$param) and $param["Url"] !== null) {
-            $this->Url = $param["Url"];
-        }
-
-        if (array_key_exists("FileId",$param) and $param["FileId"] !== null) {
-            $this->FileId = $param["FileId"];
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }

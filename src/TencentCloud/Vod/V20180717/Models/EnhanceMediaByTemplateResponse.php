@@ -18,19 +18,19 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateRebuildMediaTemplate返回参数结构体
+ * EnhanceMediaByTemplate返回参数结构体
  *
- * @method integer getDefinition() 获取音画质重生模板 ID。
- * @method void setDefinition(integer $Definition) 设置音画质重生模板 ID。
+ * @method string getTaskId() 获取音画质重生的任务 ID，可以通过该 ID 查询音画质重生任务的状态。
+ * @method void setTaskId(string $TaskId) 设置音画质重生的任务 ID，可以通过该 ID 查询音画质重生任务的状态。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateRebuildMediaTemplateResponse extends AbstractModel
+class EnhanceMediaByTemplateResponse extends AbstractModel
 {
     /**
-     * @var integer 音画质重生模板 ID。
+     * @var string 音画质重生的任务 ID，可以通过该 ID 查询音画质重生任务的状态。
      */
-    public $Definition;
+    public $TaskId;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class CreateRebuildMediaTemplateResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Definition 音画质重生模板 ID。
+     * @param string $TaskId 音画质重生的任务 ID，可以通过该 ID 查询音画质重生任务的状态。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +54,8 @@ class CreateRebuildMediaTemplateResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
-            $this->Definition = $param["Definition"];
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -18,19 +18,26 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateRebuildMediaTemplate返回参数结构体
+ * DescribeEnhanceMediaTemplates返回参数结构体
  *
- * @method integer getDefinition() 获取音画质重生模板 ID。
- * @method void setDefinition(integer $Definition) 设置音画质重生模板 ID。
+ * @method integer getTotalCount() 获取符合过滤条件的记录总数。
+ * @method void setTotalCount(integer $TotalCount) 设置符合过滤条件的记录总数。
+ * @method array getRebuildMediaTemplateSet() 获取音画质重生模板详情列表。
+ * @method void setRebuildMediaTemplateSet(array $RebuildMediaTemplateSet) 设置音画质重生模板详情列表。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateRebuildMediaTemplateResponse extends AbstractModel
+class DescribeEnhanceMediaTemplatesResponse extends AbstractModel
 {
     /**
-     * @var integer 音画质重生模板 ID。
+     * @var integer 符合过滤条件的记录总数。
      */
-    public $Definition;
+    public $TotalCount;
+
+    /**
+     * @var array 音画质重生模板详情列表。
+     */
+    public $RebuildMediaTemplateSet;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class CreateRebuildMediaTemplateResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Definition 音画质重生模板 ID。
+     * @param integer $TotalCount 符合过滤条件的记录总数。
+     * @param array $RebuildMediaTemplateSet 音画质重生模板详情列表。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +62,17 @@ class CreateRebuildMediaTemplateResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
-            $this->Definition = $param["Definition"];
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
+        }
+
+        if (array_key_exists("RebuildMediaTemplateSet",$param) and $param["RebuildMediaTemplateSet"] !== null) {
+            $this->RebuildMediaTemplateSet = [];
+            foreach ($param["RebuildMediaTemplateSet"] as $key => $value){
+                $obj = new RebuildMediaTemplate();
+                $obj->deserialize($value);
+                array_push($this->RebuildMediaTemplateSet, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

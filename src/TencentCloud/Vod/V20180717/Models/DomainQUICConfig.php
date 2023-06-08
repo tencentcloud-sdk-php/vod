@@ -18,28 +18,28 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 提取溯源水印输入
+ * 域名 QUIC 配置信息
  *
- * @method string getUrl() 获取需要提取水印的媒体 URL。
- * @method void setUrl(string $Url) 设置需要提取水印的媒体 URL。
- * @method string getFileId() 获取媒体文件 ID。Url 对应的原始媒体文件 ID。
- * @method void setFileId(string $FileId) 设置媒体文件 ID。Url 对应的原始媒体文件 ID。
+ * @method string getStatus() 获取QUIC 配置状态，可选值：
+<li>Enabled: 启用；</li>
+<li>Disabled: 禁用。</li>
+ * @method void setStatus(string $Status) 设置QUIC 配置状态，可选值：
+<li>Enabled: 启用；</li>
+<li>Disabled: 禁用。</li>
  */
-class ExtractTraceWatermarkTaskInput extends AbstractModel
+class DomainQUICConfig extends AbstractModel
 {
     /**
-     * @var string 需要提取水印的媒体 URL。
+     * @var string QUIC 配置状态，可选值：
+<li>Enabled: 启用；</li>
+<li>Disabled: 禁用。</li>
      */
-    public $Url;
+    public $Status;
 
     /**
-     * @var string 媒体文件 ID。Url 对应的原始媒体文件 ID。
-     */
-    public $FileId;
-
-    /**
-     * @param string $Url 需要提取水印的媒体 URL。
-     * @param string $FileId 媒体文件 ID。Url 对应的原始媒体文件 ID。
+     * @param string $Status QUIC 配置状态，可选值：
+<li>Enabled: 启用；</li>
+<li>Disabled: 禁用。</li>
      */
     function __construct()
     {
@@ -54,12 +54,8 @@ class ExtractTraceWatermarkTaskInput extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Url",$param) and $param["Url"] !== null) {
-            $this->Url = $param["Url"];
-        }
-
-        if (array_key_exists("FileId",$param) and $param["FileId"] !== null) {
-            $this->FileId = $param["FileId"];
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            $this->Status = $param["Status"];
         }
     }
 }
