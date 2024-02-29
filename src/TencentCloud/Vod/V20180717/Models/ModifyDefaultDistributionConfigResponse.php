@@ -18,20 +18,20 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateDomainVerifyRecord请求参数结构体
+ * ModifyDefaultDistributionConfig返回参数结构体
  *
- * @method string getDomain() 获取需要接入点播的加速域名。
- * @method void setDomain(string $Domain) 设置需要接入点播的加速域名。
+ * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateDomainVerifyRecordRequest extends AbstractModel
+class ModifyDefaultDistributionConfigResponse extends AbstractModel
 {
     /**
-     * @var string 需要接入点播的加速域名。
+     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
-    public $Domain;
+    public $RequestId;
 
     /**
-     * @param string $Domain 需要接入点播的加速域名。
+     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -46,8 +46,8 @@ class CreateDomainVerifyRecordRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
-            $this->Domain = $param["Domain"];
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }
