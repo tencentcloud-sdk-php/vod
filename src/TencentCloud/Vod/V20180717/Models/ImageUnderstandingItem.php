@@ -18,28 +18,28 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 图片处理配置。
+ * 图片理解信息项。
  *
- * @method integer getDefinition() 获取图片异步处理模板ID。
- * @method void setDefinition(integer $Definition) 设置图片异步处理模板ID。
- * @method ProcessImageAsyncInputExtendedParameter getExtendedParameter() 获取图片异步处理扩展参数。
- * @method void setExtendedParameter(ProcessImageAsyncInputExtendedParameter $ExtendedParameter) 设置图片异步处理扩展参数。
+ * @method integer getDefinition() 获取模板id。
+ * @method void setDefinition(integer $Definition) 设置模板id。
+ * @method array getOutputFile() 获取任务输出文件。
+ * @method void setOutputFile(array $OutputFile) 设置任务输出文件。
  */
-class ProcessImageAsyncTaskInput extends AbstractModel
+class ImageUnderstandingItem extends AbstractModel
 {
     /**
-     * @var integer 图片异步处理模板ID。
+     * @var integer 模板id。
      */
     public $Definition;
 
     /**
-     * @var ProcessImageAsyncInputExtendedParameter 图片异步处理扩展参数。
+     * @var array 任务输出文件。
      */
-    public $ExtendedParameter;
+    public $OutputFile;
 
     /**
-     * @param integer $Definition 图片异步处理模板ID。
-     * @param ProcessImageAsyncInputExtendedParameter $ExtendedParameter 图片异步处理扩展参数。
+     * @param integer $Definition 模板id。
+     * @param array $OutputFile 任务输出文件。
      */
     function __construct()
     {
@@ -58,9 +58,13 @@ class ProcessImageAsyncTaskInput extends AbstractModel
             $this->Definition = $param["Definition"];
         }
 
-        if (array_key_exists("ExtendedParameter",$param) and $param["ExtendedParameter"] !== null) {
-            $this->ExtendedParameter = new ProcessImageAsyncInputExtendedParameter();
-            $this->ExtendedParameter->deserialize($param["ExtendedParameter"]);
+        if (array_key_exists("OutputFile",$param) and $param["OutputFile"] !== null) {
+            $this->OutputFile = [];
+            foreach ($param["OutputFile"] as $key => $value){
+                $obj = new MPSOutputFileInfo();
+                $obj->deserialize($value);
+                array_push($this->OutputFile, $obj);
+            }
         }
     }
 }
