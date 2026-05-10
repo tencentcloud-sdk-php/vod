@@ -18,19 +18,26 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateMPSTemplate返回参数结构体
+ * DescribeAigcAdvancedCustomElements返回参数结构体
  *
- * @method integer getDefinition() 获取<p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
- * @method void setDefinition(integer $Definition) 设置<p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
+ * @method array getElementSet() 获取<p>AIGC 高级自定义主体信息。</p>
+ * @method void setElementSet(array $ElementSet) 设置<p>AIGC 高级自定义主体信息。</p>
+ * @method integer getTotalCount() 获取<p>记录总数。</p>
+ * @method void setTotalCount(integer $TotalCount) 设置<p>记录总数。</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateMPSTemplateResponse extends AbstractModel
+class DescribeAigcAdvancedCustomElementsResponse extends AbstractModel
 {
     /**
-     * @var integer <p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
+     * @var array <p>AIGC 高级自定义主体信息。</p>
      */
-    public $Definition;
+    public $ElementSet;
+
+    /**
+     * @var integer <p>记录总数。</p>
+     */
+    public $TotalCount;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class CreateMPSTemplateResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Definition <p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
+     * @param array $ElementSet <p>AIGC 高级自定义主体信息。</p>
+     * @param integer $TotalCount <p>记录总数。</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +62,17 @@ class CreateMPSTemplateResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
-            $this->Definition = $param["Definition"];
+        if (array_key_exists("ElementSet",$param) and $param["ElementSet"] !== null) {
+            $this->ElementSet = [];
+            foreach ($param["ElementSet"] as $key => $value){
+                $obj = new AigcAdvancedCustomElementInfo();
+                $obj->deserialize($value);
+                array_push($this->ElementSet, $obj);
+            }
+        }
+
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

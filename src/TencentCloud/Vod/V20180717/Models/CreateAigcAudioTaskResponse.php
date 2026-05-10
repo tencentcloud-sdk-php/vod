@@ -18,19 +18,19 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateMPSTemplate返回参数结构体
+ * CreateAigcAudioTask返回参数结构体
  *
- * @method integer getDefinition() 获取<p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
- * @method void setDefinition(integer $Definition) 设置<p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
+ * @method string getTaskId() 获取<p>任务创建成功后，返回的任务ID。<br>调用查询接口，轮询获取任务进度及生成结果。</p>
+ * @method void setTaskId(string $TaskId) 设置<p>任务创建成功后，返回的任务ID。<br>调用查询接口，轮询获取任务进度及生成结果。</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateMPSTemplateResponse extends AbstractModel
+class CreateAigcAudioTaskResponse extends AbstractModel
 {
     /**
-     * @var integer <p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
+     * @var string <p>任务创建成功后，返回的任务ID。<br>调用查询接口，轮询获取任务进度及生成结果。</p>
      */
-    public $Definition;
+    public $TaskId;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class CreateMPSTemplateResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Definition <p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
+     * @param string $TaskId <p>任务创建成功后，返回的任务ID。<br>调用查询接口，轮询获取任务进度及生成结果。</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +54,8 @@ class CreateMPSTemplateResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
-            $this->Definition = $param["Definition"];
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
