@@ -18,12 +18,18 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeAigcApiTokens请求参数结构体
+ * UpdateAigcApiToken请求参数结构体
  *
  * @method integer getSubAppId() 获取<p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
  * @method void setSubAppId(integer $SubAppId) 设置<p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
+ * @method string getApiToken() 获取<p>要更新Api Key</p>
+ * @method void setApiToken(string $ApiToken) 设置<p>要更新Api Key</p>
+ * @method string getActionType() 获取<p>Merge（默认，对 ExtInfo JSON 按顶层 key 合并）、Overwrite（直接覆盖）</p>
+ * @method void setActionType(string $ActionType) 设置<p>Merge（默认，对 ExtInfo JSON 按顶层 key 合并）、Overwrite（直接覆盖）</p>
+ * @method string getExtInfo() 获取<p>token 的扩展信息</p>
+ * @method void setExtInfo(string $ExtInfo) 设置<p>token 的扩展信息</p>
  */
-class DescribeAigcApiTokensRequest extends AbstractModel
+class UpdateAigcApiTokenRequest extends AbstractModel
 {
     /**
      * @var integer <p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
@@ -31,7 +37,25 @@ class DescribeAigcApiTokensRequest extends AbstractModel
     public $SubAppId;
 
     /**
+     * @var string <p>要更新Api Key</p>
+     */
+    public $ApiToken;
+
+    /**
+     * @var string <p>Merge（默认，对 ExtInfo JSON 按顶层 key 合并）、Overwrite（直接覆盖）</p>
+     */
+    public $ActionType;
+
+    /**
+     * @var string <p>token 的扩展信息</p>
+     */
+    public $ExtInfo;
+
+    /**
      * @param integer $SubAppId <p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
+     * @param string $ApiToken <p>要更新Api Key</p>
+     * @param string $ActionType <p>Merge（默认，对 ExtInfo JSON 按顶层 key 合并）、Overwrite（直接覆盖）</p>
+     * @param string $ExtInfo <p>token 的扩展信息</p>
      */
     function __construct()
     {
@@ -48,6 +72,18 @@ class DescribeAigcApiTokensRequest extends AbstractModel
         }
         if (array_key_exists("SubAppId",$param) and $param["SubAppId"] !== null) {
             $this->SubAppId = $param["SubAppId"];
+        }
+
+        if (array_key_exists("ApiToken",$param) and $param["ApiToken"] !== null) {
+            $this->ApiToken = $param["ApiToken"];
+        }
+
+        if (array_key_exists("ActionType",$param) and $param["ActionType"] !== null) {
+            $this->ActionType = $param["ActionType"];
+        }
+
+        if (array_key_exists("ExtInfo",$param) and $param["ExtInfo"] !== null) {
+            $this->ExtInfo = $param["ExtInfo"];
         }
     }
 }
