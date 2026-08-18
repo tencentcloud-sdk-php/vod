@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * AIGC 生图任务的输出。
  *
- * @method array getFileInfos() 获取AIGC 生图任务的输出文件信息。
- * @method void setFileInfos(array $FileInfos) 设置AIGC 生图任务的输出文件信息。
+ * @method array getFileInfos() 获取<p>AIGC 生图任务的输出文件信息。</p>
+ * @method void setFileInfos(array $FileInfos) 设置<p>AIGC 生图任务的输出文件信息。</p>
  */
 class AigcImageTaskOutput extends AbstractModel
 {
     /**
-     * @var array AIGC 生图任务的输出文件信息。
+     * @var array <p>AIGC 生图任务的输出文件信息。</p>
      */
     public $FileInfos;
 
     /**
-     * @param array $FileInfos AIGC 生图任务的输出文件信息。
+     * @param array $FileInfos <p>AIGC 生图任务的输出文件信息。</p>
      */
     function __construct()
     {
